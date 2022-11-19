@@ -1,6 +1,6 @@
 
 import ExpenseItem from "./components/ExpenseItem";
-
+import './App.css';
 
 function App() {
 
@@ -12,8 +12,8 @@ function App() {
 
   ];
   return (
-    <div>
-      <h2> Products list</h2>
+    <div className="App-gen" >
+      <div className="page_title"> Products list</div>
       <ExpenseItem
         title={expense[0].title}
         amount={expense[0].amount}

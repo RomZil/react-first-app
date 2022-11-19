@@ -6,10 +6,10 @@
     padding: 0.5rem;
     margin: 1rem 0;
     border-radius: 12px;
-    background-color: #4b4b4b;
+    background-color: lightgray;
 }
 
-.expense-item__description .expense-item__price {
+.expense-item__description  {
     display: flex;
     flex-direction: column;
     gap: 1rem;
