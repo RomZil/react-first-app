@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, useRoutes } from 'react-router-dom';
+import ContextFilter from './components/Context/ContextFilter';
+import ContextProvider from './components/Context/ContextProvider';
+import Details from './pages/Details/Details';
+import Header from './layout/Header/Header';
+import Products from './pages/Products/Products';
+
 
 function App() {
+  let router = useRoutes([
+    { path: '/', element: <Products /> },
+    { path: '/:id', element: <Details /> },
+    { path: '*', element: <Navigate to={'/'} /> },
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+      <ContextFilter>
+        <Header />
+        {router}
+      </ContextFilter>
+    </ContextProvider>
   );
 }
 
