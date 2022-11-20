@@ -1,16 +1,23 @@
 
 import ExpenseItem from "./components/ExpenseItem";
 import './App.css';
+import appleimg from './image/apple.jpg';
+import milkimg from './image/milk.jpg';
+import chesseimg from './image/chesse.jpg';
+import meatimg from './image/meat.jpg';
+
+
 
 function App() {
 
   const expense = [
-    { title: 'Apple', amount: 5.90 , img: './image/Apple.jpg'},
-    { title: 'Milk', amount: 6.50, img: './image/Milk.jpg' },
-    { title: 'Cheese', amount: 12.00, img: './image/Cheese.jpg'},
-    { title: 'Meat', amount: 55.60 , img: './image/Meat.jpg'},
+    { title: 'Apple', amount: 5.90 , img: appleimg},
+    { title: 'Milk', amount: 6.50, img: milkimg },
+    { title: 'Cheese', amount: 12.00, img: chesseimg},
+    { title: 'Meat', amount: 55.60 , img: meatimg},
 
   ];
+
   return (
     <div className="App-gen" >
       <div className="page_title"> Products list</div>
