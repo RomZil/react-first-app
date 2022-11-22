@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App-gen" >
       <div className="page_title"> Products list</div>
-      <ExpenseItem
+      <ExpenseItem 
         title={expense[0].title}
         amount={expense[0].amount}
         img={expense[0].img}
