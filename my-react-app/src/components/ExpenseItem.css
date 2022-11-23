@@ -11,15 +11,10 @@
 }
 
 .expense-item__title  {
-    display: flex;
-    font-size: 2rem;
-    margin-bottom: auto;
-    height: fit-content;
-    width: fit-content;
+    /* font-size: 10px; */
     /* gap: 1rem; */
     /* align-items: flex-end; */
     /* flex-flow: column-reverse; */
-    justify-content: flex-start;
     /* flex: 1; */
 }
 
