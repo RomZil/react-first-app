@@ -1,7 +1,7 @@
 import './ItemDetails.css'
 import "bootstrap/dist/css/bootstrap.css";
-// import { useParams } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
+import data from '../data/mockdata.js'
 
 import React from "react";
 import {
@@ -15,6 +15,7 @@ import {
 } from "mdb-react-ui-kit";
 
 function ItemDetails(props) {
+
   return (
     <MDBContainer fluid className="my-5">
       <MDBRow className="justify-content-center">
@@ -37,8 +38,10 @@ function ItemDetails(props) {
                 </div>
               </div>
               <div className="d-flex justify-content-between total font-weight-bold mt-4">
-                <span>Price</span>
-                <span>{props.amount}</span>
+                <h2>{ data[useParams().id].desc }</h2>
+                <h2>{"from"}</h2>
+                <h2>{ data[useParams().id].store }</h2>
+                <img src={data[useParams().id].sec_img } />
               </div>
             </MDBCardBody>
           </MDBCard>
