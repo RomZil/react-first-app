@@ -2,7 +2,6 @@ import './ItemDetails.css'
 import "bootstrap/dist/css/bootstrap.css";
 import { useParams } from 'react-router-dom';
 import data from '../data/mockdata.js'
-
 import React from "react";
 import {
   MDBContainer,
@@ -14,8 +13,8 @@ import {
   MDBCardTitle
 } from "mdb-react-ui-kit";
 
-function ItemDetails(props) {
 
+const ItemDetails = (props) => {
   return (
     <MDBContainer fluid className="my-5">
       <MDBRow className="justify-content-center">
@@ -41,7 +40,7 @@ function ItemDetails(props) {
                 <h2>{ data[useParams().id].desc }</h2>
                 <h2>{"from"}</h2>
                 <h2>{ data[useParams().id].store }</h2>
-                <img src={data[useParams().id].sec_img } />
+                <img src={data[useParams().id].sec_img[0].url } />
               </div>
             </MDBCardBody>
           </MDBCard>
