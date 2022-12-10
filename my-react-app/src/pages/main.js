@@ -6,14 +6,14 @@ import appleimg from "../image/apple.jpg";
 import milkimg from "../image/milk.jpg";
 import chesseimg from "../image/chesse.jpg";
 import meatimg from "../image/meat.jpg";
-
+import React from 'react';
 
 function main() {
   const expense = [
-    { title: "Apple", amount: 5.9, img: appleimg },
-    { title: "Milk", amount: 6.5, img: milkimg },
-    { title: "Cheese", amount: 12.0, img: chesseimg },
-    { title: "Meat", amount: 55.6, img: meatimg },
+    { title: "Apple", price: 5.9, img: appleimg },
+    { title: "Milk", price: 6.5, img: milkimg },
+    { title: "Cheese", price: 12.0, img: chesseimg },
+    { title: "Meat", price: 55.6, img: meatimg },
   ];
 
   return (
@@ -24,28 +24,28 @@ function main() {
           <Col>
             <ExpenseItem
               title={expense[0].title}
-              amount={expense[0].amount}
+              price={expense[0].price}
               img={expense[0].img}
             ></ExpenseItem>
           </Col>
           <Col>
             <ExpenseItem
               title={expense[1].title}
-              amount={expense[1].amount}
+              price={expense[1].price}
               img={expense[1].img}
             ></ExpenseItem>
           </Col>
           <Col>
             <ExpenseItem
               title={expense[2].title}
-              amount={expense[2].amount}
+              price={expense[2].price}
               img={expense[2].img}
             ></ExpenseItem>
           </Col>
           <Col>
             <ExpenseItem
               title={expense[3].title}
-              amount={expense[3].amount}
+              price={expense[3].price}
               img={expense[3].img}
             ></ExpenseItem>
           </Col>

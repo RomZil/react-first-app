@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ExpenseItem.css";
 import { Link } from "react-router-dom";
+import React from 'react';
 
 function ExpenseItem(props) {
   return (
@@ -18,12 +19,12 @@ function ExpenseItem(props) {
             </Card.Header>
             <Card.Img
               variant="top"
-              src={props.img}
+              src={props.img[0].url}
               style={{ width: "198px", height: "150px" }}
             />
             <Card.Body>
               <Card.Footer style={{ fontSize: "2rem", fontFamily: "cursive" }}>
-                {props.amount} $
+                {props.price} $
               </Card.Footer>
             </Card.Body>
           </Card>
