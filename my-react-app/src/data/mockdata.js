@@ -1,11 +1,3 @@
-// import appleimg from "../image/apple.jpg";
-// import milkimg from "../image/milk.jpg";
-// import chesseimg from "../image/chesse.jpg";
-// import meatimg from "../image/meat.jpg";
-// import sec_appleimg from "../image/sec-apple-img.jpg";
-// import sec_milkimg from "../image/sec-milk-img.jpg";
-// import sec_chesseimg from "../image/sec-cheese-img.jpg";
-// import sec_meatimg from "../image/sec-meat-img.jpg";
 
   
 const data = [{

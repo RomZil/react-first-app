@@ -2,23 +2,9 @@ import { Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/ExpenseItem.css";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-// import { data } from "../data/mockdata";
 
-function ExpenseItem(props) {
 
-  // const [items, setItems] = useState(data);
-  // const [cartItems, setCartItems] = useState([]);
-
-  // const onAdd = (e, id) => {
-  //   const cartItem = items.filter((item) => item.id === id)[0];
-  //   cartItems.push(cartItem);
-  //   console.log(cartItems);
-  //   console.log(cartItem);
-  //   setCartItems(cartItems);
-  
-  // };
-
+function ExpenseItem( props, { onAdd }) {
   return (
     <ul>
       <li>
@@ -43,10 +29,17 @@ function ExpenseItem(props) {
           </Card>
         </Link>
 
-        <Button variant="success" onClick={(e) => onAdd(e, props.id)}>
-          Add to Cart
-        </Button>
-      </li> 
+        {onAdd ? (
+          <Button
+            variant="success"
+            onClick={(e) => onAdd(e, props.id)}
+          >
+            Add to Cart
+          </Button>
+        ) : (
+          <></>
+        )}
+      </li>
     </ul>
   );
 }
