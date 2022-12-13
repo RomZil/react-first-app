@@ -1,35 +1,47 @@
 import ExpenseItem from "../components/ExpenseItem";
-import "./Home.css";
+import "../style/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import React, { useState, useEffect } from 'react';
-import data from '../data/mockdata.js'
+import {data} from '../data/mockdata.js'
+import { on } from "nodemon";
 
-const Main = () => {
+const Home = () => {
   const [dbdata, setData] = useState(data);
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
     .then((Response) => Response.json())
     .then((data) => {
-      console.log(data.products)
+      // console.log(data.products)
       setData(data.products)
     })
   }, [dbdata]);
 
+  // const [items, setItems] = useState(data);
+  // const [cartItems, setCartItems] = useState([]);
+
+  // const onAdd = (e, id) => {
+  //   const cartItem = items.filter((item) => item.id === id)[0];
+  //   cartItems.push(cartItem);
+  //   console.log(cartItems);
+  //   console.log(cartItem);
+  //   setCartItems(cartItems);
+  
+  // };
+
   return (
-    <div className="main">
+    <div className="Home">
       <div className="page_title"> Products list </div>
       <Container>
         <Row>
           <Col>
-            <ExpenseItem
+            <ExpenseItem 
               id={dbdata[0].id}
               title={dbdata[0].title}
               price={dbdata[0].price}
               img={dbdata[0].img}
             ></ExpenseItem>
-            {/* </Link> */}
           </Col>
           <Col>
             <ExpenseItem
@@ -61,4 +73,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default Home;

@@ -1,7 +1,7 @@
-import './ItemDetails.css'
+import '../style/ItemDetails.css'
 import "bootstrap/dist/css/bootstrap.css";
 import { useParams } from 'react-router-dom';
-import data from '../data/mockdata.js'
+import {data} from '../data/mockdata.js'
 import React from "react";
 import {
   MDBContainer,
@@ -40,7 +40,7 @@ const ItemDetails = (props) => {
                 <h2>{ data[useParams().id].desc }</h2>
                 <h2>{"from"}</h2>
                 <h2>{ data[useParams().id].store }</h2>
-                <img src={data[useParams().id].sec_img[0].url } />
+                <img src={data[useParams().id].sec_img[0].url} alt="" />
               </div>
             </MDBCardBody>
           </MDBCard>
