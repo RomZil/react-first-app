@@ -3,6 +3,8 @@ const PORT = 4000;
 const app = express()
 const data = require("./data/products.js")
 const Product = require("./modules/products")
+const Order = require("./modules/order")
+
 const connectDB = require("./index.js");
 var cors = require('cors');
 const { seedProducts, getProducts } = require("./utils/seeder");
@@ -27,7 +29,13 @@ app.get('/products', async (req, res) => {
     res.send({
         products: products
     })
-})
+});
+
+app.post("/order", async (req, res) => {
+  
+    const newOrder = new Order(req.body);
+    await newOrder.save();
+  });
 
 // app.listen(PORT)
 
