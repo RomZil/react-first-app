@@ -4,7 +4,7 @@ import "../style/ExpenseItem.css";
 import { Link } from "react-router-dom";
 
 
-function ExpenseItem( props, { onAdd }) {
+function ExpenseItem( props ) {
   return (
     <ul>
       <li>
@@ -29,10 +29,10 @@ function ExpenseItem( props, { onAdd }) {
           </Card>
         </Link>
 
-        {onAdd ? (
+        {props.onAdd ? (
           <Button
             variant="success"
-            onClick={(e) => onAdd(e, props.id)}
+            onClick={(e) => props.onAdd(e, props.id)}
           >
             Add to Cart
           </Button>
