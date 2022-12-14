@@ -39,9 +39,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home items={dbdata} onAdd={onAdd} /> }  />
+          <Route exact path="/" element={<Home items={dbdata} onAdd={onAdd} cartItems={cartItems} /> }  />
           <Route exact path="/ItemDetails/:id/" element={<ItemDetails />} />
-          <Route exact path="/Cart" element={<Cart />} />
+          <Route exact path="/Cart" element={<Cart cartItems={cartItems} />} />
         </Routes>
       </Router>
     </>

@@ -2,16 +2,16 @@ import ExpenseItem from "../components/ExpenseItem";
 import "../style/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cart from "../components/Cart";
-// import React, { useState, useEffect } from 'react';
-// import {data} from '../data/mockdata.js'
+import { Button, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap/esm";
 
-const Home = ({items , onAdd}) => {
+const Home = ({cartItems , items , onAdd}) => {
 
   return (
     <div className="Home">
       <div className="page_title"> Products list </div>
-      {!onAdd ? <Cart items={items} /> : <></>}
-      <div className="items">
+      {onAdd ? <Cart items={cartItems} /> : <></>}
+      <Container className="items">
         {items.map((item) => (
           <ExpenseItem
             onAdd={onAdd}
@@ -22,7 +22,7 @@ const Home = ({items , onAdd}) => {
             img={item.img}
           />
         ))}
-      </div>
+      </Container>
     </div>
   );
 }
