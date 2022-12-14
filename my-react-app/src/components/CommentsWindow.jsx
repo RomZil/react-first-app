@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { InputGroup } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-function CommentsWindow({ close }) {
+function CommentsWindow({ close , items }) {
+
+  const [contactInfo, setContactInfo] = useState({
+    name: "",
+    address: "",
+    comment: "",
+  });
+
+  const handleChange = (event) => {
+    setContactInfo({ ...contactInfo, [event.target.name]: event.target.value });
+  };
+
+  const submit = () => {
+    const requestOptions = {
+      method: "post",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: contactInfo.name,
+        address: contactInfo.address,
+        comment: contactInfo.comment,
+        items: items,
+      }),
+    };
+    fetch("http://localhost:3000/order", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+    console.log(contactInfo.name, contactInfo.address, contactInfo.comment);
+    console.log(requestOptions.body);
+    close();
+  };
+
+
+
   return (
     // <div className={`Comment-Window ${show ? "show" : ""}`}>
     <div className='Comment-Window'>
@@ -32,10 +67,10 @@ function CommentsWindow({ close }) {
         />
         </InputGroup>
 
-        <button type="submit">Submit</button>
-        <button type="button" onClick={close}>
+        <Button type="submit" onClick={submit}>Submit</Button>
+        <Button type="button" onClick={close}>
           Cancel
-        </button>
+        </Button>
       
     </div>
   );
