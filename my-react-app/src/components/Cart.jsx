@@ -4,6 +4,8 @@ import { Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/ExpenseItem.css";
 import CommentsWindow from "./CommentsWindow";
+import ExpenseItem from "./ExpenseItem";
+import CardHeader from "react-bootstrap/esm/CardHeader";
 
 
 function Cart({ items }) {
@@ -18,16 +20,33 @@ function Cart({ items }) {
 
   const changeCommentsDisp = () => {
     setShowComments(!showComments);
+  console.log(showComments)
+    
   };
 
   // console.log("cart view")
+
 
   return (
 
     <Card className="cart">
     <Button onClick={changeCommentsDisp}>Add details</Button>
-    <div className="totalPrice">Total: ${getTotal()}</div>
-    <CommentsWindow show={showComments} close={changeCommentsDisp} />
+    <CardHeader className="totalPrice">Total: ${getTotal()}</CardHeader>
+    {showComments ? (
+             <CommentsWindow  close={changeCommentsDisp} />
+        ) : (
+          <></>
+        )}
+ 
+    {items.map((item) => (
+          <ExpenseItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            img={item.img}
+          />
+        ))}
   </Card>
   );
 }
