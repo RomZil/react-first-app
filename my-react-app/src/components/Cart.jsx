@@ -13,7 +13,6 @@ function Cart({ items }) {
 
   const getTotal = () => {
     let sum = 0;
-    // console.log(items);
     items.map((item) => (sum += item.price));
     return sum;
   };
@@ -23,9 +22,6 @@ function Cart({ items }) {
   console.log(showComments)
     
   };
-
-  // console.log("cart view")
-
 
   return (
 

@@ -10,18 +10,25 @@ module.exports.seedProducts = async () => {
     try {
         await Product.deleteMany()
         await Product.insertMany(data)
-        // console.log("inserted " + data)
     } catch(err) {
-        // console.log("errorrr " + err.message)
+        console.log("error in seeding initial products " + err.message)
     }
 }
 
 module.exports.getProducts = async () => {
     try {
         const products  = await Product.find()
-        // console.log("found  " + products)
         return products
     } catch(err) {
-        // console.log("errorrr " + err.message)
+        console.log("error get products " + err.message)
+    }
+}
+
+module.exports.insertObjectFromCart = async (item) => {
+    try {
+        console.log("Item successfully inserted to db")
+        await Product.insertMany([item])
+    } catch(err) {
+        console.log("error insert new cart product" + err.message)
     }
 }

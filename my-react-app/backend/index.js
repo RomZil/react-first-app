@@ -7,7 +7,7 @@ const connectDB = () => {
   }).then(con => {
     console.log("-------------------------------")
   }).catch(error => {
-    console.log("error in connectint to db " + error)
+    console.log("error in connecting to db " + error)
   })
 }
 

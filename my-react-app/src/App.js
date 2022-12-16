@@ -6,23 +6,18 @@ import { data } from "./data/mockdata.js";
 import ItemDetails from "./components/ItemDetails";
 import Cart from "./components/Cart";
 import { useEffect } from "react";
-
-
+const axios = require("axios")
 
 function App() {
 
-  // console.log("App in port 3000");
-
   const [items, setItems] = useState(data);
   const [cartItems, setCartItems] = useState([]);
-
   const [dbdata, setData] = useState(data);
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
     .then((Response) => Response.json())
     .then((data) => {
-      // console.log(data.products)
       setData(data.products)
     })
   }, [dbdata]);
@@ -30,8 +25,13 @@ function App() {
   const onAdd = (e, id) => {
     const cartItem = items.filter((item) => item.id === id)[0];
     cartItems.push(cartItem);
-    console.log(cartItems);
-    console.log(cartItem);
+
+    // Create cartItem object in mongoose db.
+    axios.post("http://localhost:4000/add-cart-item", {
+      item: cartItem
+    }).then (()=> {
+      console.log("Item cart successfully saved in db")
+    })
     setCartItems(cartItems);
   };
 
